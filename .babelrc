@@ -1,10 +1,14 @@
 {
   "plugins": [
+    "add-module-exports",
     [
       "nessa/library/transpiler",
       {
         "isDebugged": true,
-        "logPath": "./process/logs/nessa-sample.babel.log"
+        "logPath": "./process/logs/nessa-sample.babel.log",
+        "require": {
+          "utilities": "./library/utilities"
+        }
       }
     ]
   ],
