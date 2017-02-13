@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    [
+      "nessa/library/transpiler",
+      {
+        "isDebugged": true,
+        "logPath": "./process/logs/nessa-sample.babel.log"
+      }
+    ]
+  ],
+  "presets": [
+    "es2015"
+  ]
+}

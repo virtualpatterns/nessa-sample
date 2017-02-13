@@ -1,0 +1,13 @@
+*.bts
+*.err
+*.log
+*.out
+*.pid
+/coverage
+/library
+/node_modules
+/process
+/sandbox
+/server
+/tests
+/www
