@@ -1,4 +1,4 @@
-import Log from 'mablung/library/log'
+import { Log } from 'mablung'
 import _Utilities from 'nessa/library/utilities'
 
 const Utilities = Object.create(_Utilities)

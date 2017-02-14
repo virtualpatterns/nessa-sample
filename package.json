@@ -16,7 +16,7 @@
     "babel-cli": "^6.22.2",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.22.0",
-    "nessa": "0.0.17",
+    "nessa": "0.0.18",
     "restify": "^4.3.0",
     "webpack": "^2.2.1"
   }

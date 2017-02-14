@@ -29,6 +29,10 @@ module.exports = {
       // }
     ]
   },
+  'node': {
+    'fs': 'empty',
+    'process': 'mock'
+  },
   'output': {
     'filename': '[name].js',
     'path': _mablung.Path.join(__dirname, 'www', 'scripts', 'bundles')

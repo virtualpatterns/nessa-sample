@@ -1,6 +1,6 @@
 import CreateContent from 'virtual-dom/create-element'
 import Diff from 'virtual-dom/diff'
-import Log from 'mablung/library/log'
+import { Log } from 'mablung'
 import Patch from 'virtual-dom/patch'
 
 const WelcomePug = require('./welcome.pug')
