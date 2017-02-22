@@ -5,15 +5,14 @@ import Package from '../package.json'
 
 const LOG_PATH = Path.join(__dirname, '..', 'process', 'logs', `${Package.name}.server.log`)
 const PORT = 8082
-const REGEXP_MOCHA = /^\/www\/vendor\/mocha\/(.*)$/
 const REGEXP_STATIC = /^\/www\/(.*)$/
 
 FileSystem.mkdirp.sync(Path.dirname(LOG_PATH))
 
-Log.clear()
+// Log.clear()
 Log.addConsole()
 Log.addFile(LOG_PATH)
-Log.line()
+// Log.line()
 
 let server = Server.createServer()
 
@@ -41,14 +40,6 @@ server.get('/', (request, response, next) => {
 
 server.get('/www', (request, response, next) => {
   response.redirect('/www/index.html', next)
-})
-
-server.get(REGEXP_MOCHA, (request, response, next) => {
-  Server.serveStatic({
-    'directory': Path.join(__dirname, '..', 'node_modules', 'mocha'),
-    'file': request.params[0],
-    'maxAge': 0
-  })(request, response, next)
 })
 
 server.get(REGEXP_STATIC, (request, response, next) => {
