@@ -1,17 +1,12 @@
 {
   "plugins": [
-    "add-module-exports",
     [
-      "nessa/library/transpiler",
+      "@virtualpatterns/nessa/distributables/library/transpiler",
       {
-        "isDebugged": true,
-        "require": {
-          "utilities": "./library/utilities"
-        }
+        "logPath": "./process/logs/nessa-sample-babel.log",
+        "test": "\\.pug$"
       }
     ]
   ],
-  "presets": [
-    "es2015"
-  ]
+  "presets": [ "env" ]
 }

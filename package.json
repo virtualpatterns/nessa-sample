@@ -1,25 +1,40 @@
 {
-  "author": "code@virtualpatterns.com",
+  "author": "virtualpatterns.com <code@virtualpatterns.com> (http://www.virtualpatterns.com)",
   "description": "TBD",
-  "license": "ISC",
-  "main": "server/index.js",
-  "name": "nessa-sample",
+  "files": [
+    "distributables/server",
+    "distributables/www"
+  ],
+  "license": "GPL-3.0+",
+  "main": "distributables/server/index.js",
+  "name": "@virtualpatterns/nessa-sample",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/virtualpatterns/nessa-sample"
+  },
   "scripts": {
-    "link": "hln ./process/logs \"$HOME/Library/Logs/nessa-sample\"",
-    "unlink": "hln -u \"$HOME/Library/Logs/nessa-sample\"",
-    "upgrade": "npm-check-updates --upgrade",
-    "clean": "rm -rf ./coverage ./library ./server ./www",
-    "build": "npm run clean && babel ./source --copy-files --out-dir . && webpack",
-    "run": "npm run build && node server/index.js"
+    "refresh": "rm -Rf node_modules distributables/* && npm install",
+    "clean": "rm -Rf distributables/configuration.js distributables/tasks",
+    "lint": "npm run clean && eslint --ignore-path .gitignore source/tasks",
+    "build": "npm run lint && babel source/configuration.js --out-file distributables/configuration.js --quiet --source-maps && babel source/tasks --copy-files --out-dir distributables/tasks --quiet --source-maps",
+    "tasks": "npm run build && jake --jakefile distributables/tasks/index.js --tasks",
+    "jake": "npm run build && jake --jakefile distributables/tasks/index.js",
+    "upgrade": "npm-check-updates --upgrade"
   },
   "version": "0.0.1",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.18.1",
+    "jake": "^8.0.15",
+    "npm-check-updates": "^2.14.0",
+    "parcel-bundler": "^1.6.2",
+    "restify": "^6.3.4",
+    "restify-plugins": "^1.6.0"
+  },
   "dependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-es2015": "^6.22.0",
-    "nessa": "0.0.22",
-    "npm-check-updates": "^2.10.3",
-    "restify": "^4.3.0",
-    "webpack": "^2.2.1"
+    "@virtualpatterns/mablung": "0.0.14",
+    "@virtualpatterns/nessa": "0.0.23",
+    "virtual-dom": "^2.1.1"
   }
 }

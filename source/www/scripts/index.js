@@ -1,30 +1,37 @@
 import CreateContent from 'virtual-dom/create-element'
 import Diff from 'virtual-dom/diff'
-import { Log } from 'mablung'
+import { Log } from '@virtualpatterns/mablung'
 import Patch from 'virtual-dom/patch'
+import Utilities from '@virtualpatterns/nessa'
 
-const WelcomePug = require('./welcome.pug')
-const IndexPug = require('./index.pug')
+const Welcome = require('./welcome.pug')
+const Index = require('./index.pug')
 
 document.addEventListener('DOMContentLoaded', () => {
+  Log.createFormattedLog()
+  Log.debug('document.addEventListener(\'DOMContentLoaded\', () => { ... }')
 
-  let virtualContentPug = IndexPug({
+  let virtualContent = Index({
+    Welcome,
     'name': 'virtualpatterns.com',
-    'now': new Date()
+    'now': new Date(),
+    Utilities
   })
 
-  document.querySelector('#content-pug').appendChild(CreateContent(virtualContentPug))
+  document.querySelector('div.content').appendChild(CreateContent(virtualContent))
 
   setInterval(() => {
 
-    let newVirtualContentPug = IndexPug({
+    let newVirtualContent = Index({
+      Welcome,
       'name': 'virtualpatterns.com',
-      'now': new Date()
+      'now': new Date(),
+      Utilities
     })
 
-    Patch(document.querySelector('#content-pug > div'), Diff(virtualContentPug, newVirtualContentPug))
+    Patch(document.querySelector('div.content > div'), Diff(virtualContent, newVirtualContent))
 
-    virtualContentPug = newVirtualContentPug
+    virtualContent = newVirtualContent
 
   }, 1000)
 
