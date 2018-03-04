@@ -23,18 +23,18 @@
   },
   "version": "0.0.1",
   "devDependencies": {
+    "@virtualpatterns/nessa": "0.0.25",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.18.1",
     "jake": "^8.0.15",
     "npm-check-updates": "^2.14.0",
-    "parcel-bundler": "^1.6.2",
-    "restify": "^6.3.4",
-    "restify-plugins": "^1.6.0"
+    "parcel-bundler": "^1.6.2"
   },
   "dependencies": {
     "@virtualpatterns/mablung": "0.0.14",
-    "@virtualpatterns/nessa": "0.0.23",
+    "restify": "^6.3.4",
+    "restify-plugins": "^1.6.0",
     "virtual-dom": "^2.1.1"
   }
 }

@@ -1,4 +1,4 @@
-import { Process } from '@virtualpatterns/mablung'
+import { Path, Process } from '@virtualpatterns/mablung'
 
 const PORT = 8080
 
@@ -6,6 +6,22 @@ export default {
 
   'babel': {
     'logPath': `./process/logs/nessa-sample-babel.log`
+  },
+
+  'bundle': {
+    'entryPath': Path.join(__dirname, '../source/www/index.html'),
+    'options': {
+      'cache': false,
+      'detailedReport': false,
+      'https': false,
+      'logLevel': 3,
+      'minify': false,
+      'outDir': Path.join(__dirname, '../distributables/www'),
+      'outFile': Path.join(__dirname, '../distributables/www/index.html'),
+      'sourceMaps': true,
+      'target': 'browser',
+      'watch': false
+    }
   },
 
   'server': {
